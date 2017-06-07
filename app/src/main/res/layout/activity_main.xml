@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.bones.balancecalculator.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+
+        android:id="@+id/inputContainer"
+        android:orientation="vertical"
+        android:background="@drawable/inputcontainer">
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Income"
+            android:textAlignment="center"
+            android:id="@+id/txtIncome"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Outcome"
+            android:textAlignment="center"
+            android:id="@+id/txtOutcome"
+            android:textColorHint="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/txtBalance"
+            android:text="Balance : " />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/arrowleft"
+        android:layout_alignParentRight="true"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonHapus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/trash"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="250dp"
+
+        android:layout_alignParentLeft="true"
+
+        />
+
+    <android.inputmethodservice.KeyboardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:background="@android:color/transparent"
+        android:keyBackground="@color/colorPrimary"
+        android:visibility="visible"
+        android:id="@+id/KeyView"
+        />
+
+</RelativeLayout>
