@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         SimpleIME actionListener = new SimpleIME(this);
 
-
+        //inflating keyboard
         kv = (KeyboardView) findViewById(R.id.KeyView);
         Keyboard keyboard = new Keyboard(this, R.layout.keyboard);
         kv.setKeyboard(keyboard);
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         outcome = (EditText) findViewById(R.id.txtOutcome);
         balance = (TextView) findViewById(R.id.txtBalance);
 
+        //Disabling system keyboard
         income.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Disabling system keyboard
         outcome.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -71,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //final String s = income.getText().toString();
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                //final String s = income.getText().toString();
+                //cursor start from the last char
                 int count = editable.length();
                 income.setSelection(count);
             }
@@ -90,12 +92,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //final String s = income.getText().toString();
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                //final String s = income.getText().toString();
+                //make cursor start from the last char
                 int count = editable.length();
                 outcome.setSelection(count);
             }
@@ -106,19 +108,17 @@ public class MainActivity extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Calculating balance
                 String txtincome = income.getText().toString();
                 String txtoutcome = outcome.getText().toString();
                 int balint;
 
+                //Checking the text field
                 if(txtincome.isEmpty() || txtoutcome.isEmpty()){
                     Toast.makeText(MainActivity.this, "Field is empty", Toast.LENGTH_SHORT).show();
                 } else {
-
                     int inint = Integer.parseInt(txtincome);
                     int outint = Integer.parseInt(txtoutcome);
-
-
 
                     balint = inint - outint;
 
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Clear all text
                 income.setText("");
                 outcome.setText("");
                 balance.setText("Balance : ");

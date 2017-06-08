@@ -17,27 +17,17 @@ import android.view.inputmethod.InputConnection;
     public class SimpleIME extends InputMethodService
             implements KeyboardView.OnKeyboardActionListener {
 
-        private KeyboardView kv;
-        private Keyboard keyboard;
         Activity target;
 
         public SimpleIME(Activity target){
             this.target = target;
         }
 
-
-
-
-        private boolean caps = false;
-
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
-
             long eventTime = System.currentTimeMillis();
             KeyEvent event = new KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, primaryCode, 0, 0, 0, 0, KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE);
             target.dispatchKeyEvent(event);
-
-
 
         }
 
@@ -52,8 +42,6 @@ import android.view.inputmethod.InputConnection;
 
         @Override
         public void onText(CharSequence text) {
-
-
 
         }
 
@@ -73,14 +61,7 @@ import android.view.inputmethod.InputConnection;
         public void swipeUp() {
         }
 
-    @Override
-    public View onCreateInputView() {
-        kv = (KeyboardView)getLayoutInflater().inflate(R.layout.activity_main, null);
-        keyboard = new Keyboard(this, R.layout.keyboard);
-        kv.setKeyboard(keyboard);
-        kv.setOnKeyboardActionListener(this);
-        return kv;
-    }
+
 
     }
 
